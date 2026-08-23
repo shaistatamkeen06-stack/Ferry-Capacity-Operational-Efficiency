@@ -26,8 +26,8 @@ from sklearn.preprocessing import MinMaxScaler
 import warnings
 warnings.filterwarnings("ignore")
 
-pd.set_option("display.max_columns", None)
-pd.set_option("display.float_format", lambda x: f"{x:,.2f}")
+pd.set_option("st.write.max_columns", None)
+pd.set_option("st.write.float_format", lambda x: f"{x:,.2f}")
 
 print("All libraries loaded successfully.")
 
@@ -315,7 +315,7 @@ df["Season"] = (
     .apply(assign_season)
 )
 
-display(df.head())
+st.write(df.head())
 
 # CELL 8 — CORE ANALYTICAL FEATURES
 
@@ -337,7 +337,7 @@ df["Zero_Activity_Flag"] = (
     df["Total_Activity_Load"] == 0
 ).astype(int)
 
-display(
+st.write(
     df[
         [
             "Timestamp",
@@ -393,7 +393,7 @@ df["Rolling_24H_Std"] = (
     .std()
 )
 
-display(
+st.write(
     df[
         [
             "Timestamp",
@@ -455,7 +455,7 @@ df["OLI"] = (
     .clip(0, 100)
 )
 
-display(
+st.write(
     df[
         [
             "Timestamp",
@@ -527,7 +527,7 @@ df["Operational_Status"] = np.select(
     default="Normal"
 )
 
-display(
+st.write(
     df[
         [
             "Timestamp",
@@ -574,7 +574,7 @@ congestion_periods = (
 )
 
 print("Top congestion episodes:")
-display(
+st.write(
     congestion_periods.head(20)
 )
 
@@ -621,7 +621,7 @@ print(
     "Sustained idle periods (>=45 minutes):"
 )
 
-display(
+st.write(
     sustained_idle_periods.head(20)
 )
 
@@ -669,7 +669,7 @@ hourly["Day_Type"] = np.where(
     "Weekday"
 )
 
-display(hourly.head())
+st.write(hourly.head())
 
 # CELL 15 — DAILY AGGREGATION
 
@@ -711,7 +711,7 @@ daily["Day_Type"] = np.where(
     "Weekday"
 )
 
-display(daily.head())
+st.write(daily.head())
 
 # CELL 16 — CAPACITY UTILIZATION PROXY
 
@@ -748,7 +748,7 @@ print(
     round(reference_load, 2)
 )
 
-display(
+st.write(
     df[
         [
             "Timestamp",
@@ -788,7 +788,7 @@ df["Congestion_Pressure_Index"] = (
     .clip(0, 100)
 )
 
-display(
+st.write(
     df[
         [
             "Timestamp",
@@ -888,7 +888,7 @@ anomalies = (
     )
 )
 
-display(anomalies.head(20))
+st.write(anomalies.head(20))
 
 # CELL 21 — WEEKDAY VS WEEKEND
 
@@ -923,7 +923,7 @@ weekday_weekend = (
 weekday_weekend["Congestion_Rate"] *= 100
 weekday_weekend["Idle_Rate"] *= 100
 
-display(weekday_weekend)
+st.write(weekday_weekend)
 
 # CELL 22 — SEASONAL ANALYSIS
 
@@ -976,7 +976,7 @@ season_analysis = (
     .sort_values("Season")
 )
 
-display(season_analysis)
+st.write(season_analysis)
 
 # CELL 23 — TIME BAND ANALYSIS
 
@@ -1028,7 +1028,7 @@ time_band_analysis = (
     .sort_values("Time_Band")
 )
 
-display(time_band_analysis)
+st.write(time_band_analysis)
 
 # CELL 24 — MONTHLY ANALYSIS
 
@@ -1070,7 +1070,7 @@ monthly_analysis["Month_Name"] = (
 monthly_analysis["Congestion_Rate"] *= 100
 monthly_analysis["Idle_Rate"] *= 100
 
-display(monthly_analysis)
+st.write(monthly_analysis)
 
 # CELL 25 — YEARLY TREND ANALYSIS
 
@@ -1113,7 +1113,7 @@ year_analysis = (
 year_analysis["Congestion_Rate"] *= 100
 year_analysis["Idle_Rate"] *= 100
 
-display(year_analysis)
+st.write(year_analysis)
 
 # CELL 26 — OPERATIONAL LOAD HEATMAP
 
@@ -1344,7 +1344,7 @@ top_congestion = (
     .copy()
 )
 
-display(top_congestion)
+st.write(top_congestion)
 
 if len(top_congestion) > 0:
 
@@ -1430,7 +1430,7 @@ kpi_table = pd.DataFrame({
     ]
 })
 
-display(kpi_table)
+st.write(kpi_table)
 
 # CELL 35 — AUTOMATIC INSIGHT ENGINE
 
@@ -2545,13 +2545,13 @@ kpis = pd.DataFrame({
 
 kpis['Value'] = kpis['Value'].round(2)
 
-display(kpis)
+st.write(kpis)
 
-from IPython.display import display, HTML
+from IPython.st.write import st.write, HTML
 
-display(HTML(f"""
+st.write(HTML(f"""
 <div style="
-display:grid;
+st.write:grid;
 grid-template-columns:repeat(4,1fr);
 gap:15px;
 margin:20px 0;
@@ -2648,7 +2648,7 @@ day_analysis = day_analysis.sort_values(
     ascending=False
 )
 
-display(day_analysis)
+st.write(day_analysis)
 
 status_analysis = (
     df['Operational_Status']
@@ -2671,7 +2671,7 @@ status_analysis['Percentage'] = (
     status_analysis['Percentage'].round(2)
 )
 
-display(status_analysis)
+st.write(status_analysis)
 
 congestion_analysis = (
     df.groupby('Congestion_Group')
@@ -2689,7 +2689,7 @@ congestion_analysis['Percentage'] = (
     * 100
 ).round(2)
 
-display(congestion_analysis)
+st.write(congestion_analysis)
 
 anomaly_summary = pd.DataFrame({
     'Metric': [
@@ -2709,7 +2709,7 @@ anomaly_summary = pd.DataFrame({
 
 anomaly_summary['Value'] = anomaly_summary['Value'].round(2)
 
-display(anomaly_summary)
+st.write(anomaly_summary)
 
 # ============================================
 # BUSINESS INSIGHTS
@@ -2991,7 +2991,7 @@ final_kpis["Value"] = final_kpis["Value"].round(2)
 print("\n1️⃣ FINAL REQUIRED KPIs")
 print("-" * 75)
 
-display(final_kpis)
+st.write(final_kpis)
 
 
 # ================================================================
@@ -3020,7 +3020,7 @@ peak_idle = (
 print("\n2️⃣ PEAK VS IDLE OPERATIONAL COMPARISON")
 print("-" * 75)
 
-display(peak_idle)
+st.write(peak_idle)
 
 
 # ================================================================
@@ -3061,7 +3061,7 @@ congestion_idle["Value"] = (
 print("\n3️⃣ CONGESTION & IDLE SUMMARY")
 print("-" * 75)
 
-display(congestion_idle)
+st.write(congestion_idle)
 
 
 # ================================================================
@@ -3114,7 +3114,7 @@ print(
 
 print("\nTop 10 highest-activity hours:")
 
-display(
+st.write(
     hourly_efficiency
     .sort_values(
         "Activity",
