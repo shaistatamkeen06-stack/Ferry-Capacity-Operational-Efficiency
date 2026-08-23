@@ -38,12 +38,11 @@ uploaded = files.upload()
 
 file_name = list(uploaded.keys())[0]
 
-print("Uploaded file:", ferry efficiency analytics.py)
+print("Uploaded file:", file_name)
 
 # CELL 3 — LOAD DATA
 
-
-df = pd.read_csv(ferry efficiency analytics.py)
+df = pd.read_csv(file_name)
 
 print("Dataset shape:", df.shape)
 
