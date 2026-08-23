@@ -32,17 +32,12 @@ pd.set_option("display.float_format", lambda x: f"{x:,.2f}")
 print("All libraries loaded successfully.")
 
 # CELL 2 — UPLOAD DATASET
+import streamlit as st
+import pandas as pd
+
+df = pd.read_csv("Toronto Island Ferry Tickets.csv")
 
 
-uploaded = files.upload()
-
-file_name = list(uploaded.keys())[0]
-
-print("Uploaded file:", file_name)
-
-# CELL 3 — LOAD DATA
-
-df = pd.read_csv(file_name)
 
 print("Dataset shape:", df.shape)
 
@@ -2447,7 +2442,7 @@ for _ in range(30):
     if "trycloudflare.com" in line:
         break
 
-!pip -q install streamlit
+
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
