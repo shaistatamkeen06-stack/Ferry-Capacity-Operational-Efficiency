@@ -2413,11 +2413,6 @@ time.sleep(8)
 
 print("✅ Streamlit is running on port 8501")
 
-# Install Cloudflare Tunnel
-!wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /content/cloudflared
-!chmod +x /content/cloudflared
-
-print("✅ Cloudflare Tunnel installed")
 
 import subprocess
 import re
