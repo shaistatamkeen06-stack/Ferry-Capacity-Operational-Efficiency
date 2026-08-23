@@ -27,7 +27,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 pd.set_option("display.max_columns", None)
-pd.set_option("st.write.float_format", lambda x: f"{x:,.2f}")
+pd.set_option("display.float_format", lambda x: f"{x:,.2f}")
 
 print("All libraries loaded successfully.")
 
