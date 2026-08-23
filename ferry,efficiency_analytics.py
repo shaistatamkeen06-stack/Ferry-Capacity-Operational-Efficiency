@@ -20,7 +20,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 from sklearn.preprocessing import MinMaxScaler
-from google.colab import files
+
 from IPython.display import display
 
 import warnings
@@ -34,8 +34,10 @@ print("All libraries loaded successfully.")
 # CELL 2 — UPLOAD DATASET
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 df = pd.read_csv("Toronto Island Ferry Tickets.csv")
+                
 
 
 
