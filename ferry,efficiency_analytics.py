@@ -179,7 +179,7 @@ interval_difference = (
 )
 
 print("Most common intervals:")
-display(
+st.write(
     interval_difference
     .value_counts()
     .head(10)
