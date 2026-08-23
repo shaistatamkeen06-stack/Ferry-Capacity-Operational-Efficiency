@@ -26,7 +26,7 @@ from sklearn.preprocessing import MinMaxScaler
 import warnings
 warnings.filterwarnings("ignore")
 
-pd.set_option("st.write.max_columns", None)
+pd.set_option("display.max_columns", None)
 pd.set_option("st.write.float_format", lambda x: f"{x:,.2f}")
 
 print("All libraries loaded successfully.")
