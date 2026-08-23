@@ -48,7 +48,7 @@ for column in df.columns:
     print("-", column)
 
 print("\nFirst 5 records:")
-display(df.head())
+st.dataframe(df.head())
 
 print("\nDataset information:")
 df.info()
