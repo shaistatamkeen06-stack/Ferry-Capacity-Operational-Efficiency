@@ -94,7 +94,7 @@ df["Redemption Count"] = pd.to_numeric(
 )
 
 print("Missing values:")
-display(df.isnull().sum())
+st.write(df.isnull().sum())
 
 print("\nDuplicate complete rows:", df.duplicated().sum())
 
