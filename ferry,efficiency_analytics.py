@@ -2456,13 +2456,7 @@ for _ in range(30):
 
 
 
-!wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared
-!chmod +x /usr/local/bin/cloudflared
-!cloudflared --version
 
-
-
-!cloudflared tunnel --url http://localhost:8501
 
 print(df.columns.tolist())
 
