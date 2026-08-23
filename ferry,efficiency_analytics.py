@@ -10,7 +10,7 @@ Original file is located at
 # CELL 1 — LIBRARIES
 
 
-!pip -q install openpyxl plotly scikit-learn
+
 
 import pandas as pd
 import numpy as np
