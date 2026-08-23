@@ -21,7 +21,7 @@ import plotly.graph_objects as go
 
 from sklearn.preprocessing import MinMaxScaler
 
-from IPython.display import display
+
 
 import warnings
 warnings.filterwarnings("ignore")
