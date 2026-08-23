@@ -229,7 +229,7 @@ print(
 
 if len(missing_timestamps) > 0:
     print("\nFirst missing timestamps:")
-    display(
+    st.write(
         pd.DataFrame({
             "Missing_Timestamp":
             missing_timestamps[:20]
