@@ -2547,7 +2547,6 @@ kpis['Value'] = kpis['Value'].round(2)
 
 st.write(kpis)
 
-from IPython.st.write import st.write, HTML
 
 st.write(HTML(f"""
 <div style="
