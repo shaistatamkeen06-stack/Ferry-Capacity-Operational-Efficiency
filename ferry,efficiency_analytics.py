@@ -2454,13 +2454,13 @@ for _ in range(30):
 # st.title("🚢 Toronto Island Ferry Analytics")
 # st.success("Cloudflare Tunnel is connected successfully!")
 
-!streamlit run app.py --server.address 0.0.0.0 --server.port 8501 > streamlit.log 2>&1 &
+
 
 !wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared
 !chmod +x /usr/local/bin/cloudflared
 !cloudflared --version
 
-!streamlit run app.py --server.address 0.0.0.0 --server.port 8501 > streamlit.log 2>&1 &
+
 
 !cloudflared tunnel --url http://localhost:8501
 
